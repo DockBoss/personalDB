@@ -2,9 +2,15 @@ from tkinter import *
 from tkinter import ttk
 import DB.dataBase as db
 
+
+
+
 #connect to the database
 db.connect("test", "Test1234")
 
+def toggleview(*args):
+    #toggleStatefunction
+    db.toggleState(args)
 
 
 #function that will eventually send the task to the database or at least call send the var to the function in the db library

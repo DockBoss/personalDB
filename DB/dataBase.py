@@ -1,6 +1,8 @@
 import mysql.connector
 from mysql.connector import errorcode
 
+myDB = None
+
 def connect(userName, password):
   try:
     connector = mysql.connector.connect(user= userName, 
@@ -18,7 +20,8 @@ def connect(userName, password):
       print(err)
   else:
       print("Connected")
-      return connector
+      myDB = connector
+
 
 '''
 create cursors, not sure why they should be buffered
@@ -26,7 +29,7 @@ I read a little on it but was confused
 I am not sure If these should be used for every function but I will use it
 that way
 '''
-myDB = connect('test', 'Test1234')
+
 myCursor1 = myDB.cursor(buffered = True)
 myCursor2 = myDB.cursor(buffered = True)
 
