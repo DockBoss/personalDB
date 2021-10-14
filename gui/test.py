@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-from DB import *
+import DB.dataBase as db
 
 #connect to the database
 db.connect("test", "Test1234")
