@@ -2,20 +2,16 @@ from tkinter import *
 from tkinter import ttk
 import DB.dataBase as db
 
+#create an isnstance of the database connection1
+testDB = db.Connection("test", "Test1234")
 
 
-
-#connect to the database
-db.connect("test", "Test1234")
-
-def toggleview(*args):
+def toggleview():
     #toggleStatefunction
-    db.toggleState(args)
+    testDB.toggleState()
+    
 
 
-#function that will eventually send the task to the database or at least call send the var to the function in the db library
-def enter(*args):
-    print(task.get())
 
 #creating root window
 root = Tk()
@@ -39,7 +35,7 @@ taskEntry.grid(column = 1, row = 1, sticky = (W, E))
 ttk.Label(mainFrame, text = "Enter task").grid(column = 2, row = 1, sticky = (N, E))
 
 # add entry button
-ttk.Button(mainFrame, width = 20, text = "Enter", command = enter).grid(column = 1, row = 2, sticky = (N, W))
+ttk.Button(mainFrame, width = 20, text = "Enter", command = toggleview).grid(column = 1, row = 2, sticky = (N, W))
 
 
 # adds padding to all children of the mainFrame
