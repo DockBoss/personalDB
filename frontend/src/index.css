@@ -1,10 +1,6 @@
-
-
-html {
-    background-image: linear-gradient(25deg, #00639c, #fff);
-    background-repeat: no-repeat;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body {
+    margin: 0px;
+    padding: 0px;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }

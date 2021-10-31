@@ -1,30 +1,86 @@
-//from what I see It looks like I am supposed to build the app here
-//and then export this to index to start the app
-
-
 import React from "react";
-//import styles and components
-import Login from './components/frames/login.js';
-import Btn from './components/reuseable/button.js';
-import NavBar from './components/frames/navBar.js'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import styled from "styled-components";
+import NavBar from "./components/navBar.js";
+import TaskMenu from "./components/taskMenu.js";
+import TodoList from "./components/todoList.js";
+import * as colors from "./components/colors";
+const Wrapper = styled.div`
+  margin: 0px;
+  margin-top: 100px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  overflow-x: hidden;
+  background-color: ${colors.light}
+`;
+
+const StyledLink = styled.div`
+  text-align: center;
+  color: ${colors.darkSecondary};
+  border-width: 10px;
+  border-style: ridge;
+  width: 15vw;
+  margin: 0px;
+  padding: 10px;
+  box-shadow: 2px 5px 5px ${colors.dark};
+`;
+
+const TodoLinkDiv = styled(StyledLink)`
+border-color: ${colors.electric};
+background-color: ${colors.electric};
+`;
+const OrangeLinkDiv = styled(StyledLink)`
+border-color: ${colors.orange};
+background-color: ${colors.orange};
+`;
+const BlueLinkDiv = styled(StyledLink)`
+border-color: ${colors.blue};
+background-color: ${colors.blue};
+`;
+const GreenLinkDiv = styled(StyledLink)`
+border-color: ${colors.green};
+background-color: ${colors.green};
+`;
+const PurpleLinkDiv = styled(StyledLink)`
+border-color: ${colors.purple};
+background-color: ${colors.purple};
+`;
+
 //Building the application out of components
 export default function App(props) {
-  const [data, setData] = React.useState(null);
-
-  React.useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
-  //  const isLoggedIn = props.isLoggedIn;
-  //  if (isLoggedIn) {
-  //      return (  <div className="App">
-  //     </div>);
-  //  }
-    return (
-      <div className="App">
-       <NavBar>test</NavBar>
-       <p>{!data ? "Loading" : data}</p>
-      </div>
-    );
-  }
+  return (
+    <Wrapper>
+      <Router>
+        <NavBar>
+          <Link to="/todo">
+            <TodoLinkDiv>ToDo</TodoLinkDiv>
+          </Link>
+          <Link to="/home">
+            <OrangeLinkDiv>Test</OrangeLinkDiv>
+          </Link>
+          <Link to="/">
+            <BlueLinkDiv>Test</BlueLinkDiv>
+          </Link>
+          <Link to="">
+            <GreenLinkDiv>Test</GreenLinkDiv>
+          </Link>
+          <Link to="">
+            <PurpleLinkDiv>Test</PurpleLinkDiv>
+          </Link>
+        </NavBar>
+        <Switch>
+          <Route path="/todo">
+            <TaskMenu />
+            <TodoList />
+          </Route>
+          <Route path="/home">test</Route>
+        </Switch>
+      </Router>
+    </Wrapper>
+  );
+}
