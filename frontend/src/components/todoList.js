@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { getTasks } from "../services/todoServices.js";
+import { getAllTasks, getActiveTasks } from "../services/todoServices.js";
 import * as colors from "./colors"
 
 const TodoDiv = styled.div`
@@ -37,7 +37,7 @@ border-style: inset;
 		${colors.greenLayer2Light};
 	border-width: 5px 5px 10px 10px;
 	background-color: ${colors.layer0Light};
-	margin: 20px 0px 10px 20px;
+	margin: 0px 0px 10px 20px;
 	padding: 10px 10px 10px 10px;
 	width: 10vw;
 `;
@@ -58,22 +58,22 @@ margin: 10px 20px 20px 0px;
 const TaskDes = styled(BaseP)`
 grid-area: description;
 padding: 10px 10px 10px 10px;
-margin: 20px 0px 50px 0px;
+margin: 20px 0px 20px 0px;
 `;
 const TaskDate = styled(BaseP)`
 grid-area: dateAdded;
 padding: 10px 10px 10px 10px;
-margin: 10px 0px 20px 20px;
+margin: 10px 20px 0px 20px;
 `;
 const TaskDueDate = styled(BaseP)`
 grid-area: dueDate;
 padding: 10px 10px 10px 10px;
-margin: 20px 20px 10px 0px;
+margin: 0px 20px 10px 0px;
 `;
 const TaskComplete = styled(BaseP)`
 grid-area: done;
 padding: 10px 10px 10px 10px;
-margin: 20px 20px 0px 0px;
+margin: 20px 20px 20px 0px;
 `;
 
 export default class TodoList extends React.Component {
@@ -86,7 +86,7 @@ export default class TodoList extends React.Component {
 	//runs after components are rendered
 	async componentDidMount() {
 		try {
-			const { data } = await getTasks();
+			const { data } = await getActiveTasks();
 			console.log(data);
 			this.setState({ tasks: data });
 		} catch (e) {

@@ -1,21 +1,51 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const mongoose = require("mongoose");
+const Task = require("./schema/taskSchema.js");
+// for parsing multipart/form-data
+const multer = require("multer");
+const upload = multer();
 
-
-//create uri of /todo/getTaskById/given Id
-// all you need ot do dynamic routes is /:blank in the uri then use req.params.blank
-// can also use regex  :id([0-9]{5}
-router.get("/getTaskById/:id", (req, res) => {
-    res.send("Looking for Id: " + req.params.id);
+//gets all tasks in DB
+router.get("/getAllTasks", function (req, res) {
+  Task.find({}, function (err, tasks) {
+    if (err) {
+      res.status(500).json({ message: "Database error", error: err });
+    } else {
+      res.json(tasks);
+    }
+  });
 });
 
-//creates the uri of ___/todo/getAllTasks
-router.get("/getAllTasks", (req, res) => {
-    res.json({message: "Hello"});
+//gets active tasks
+router.get("/getActiveTasks", function (req, res) {
+	Task.find({"completed": false}, function (err, tasks) {
+		if (err) {
+			res.status(500).json({ message: "Database error", error: err });
+		  } else { 
+			res.json(tasks);
+		  }
+	});
 });
-//creates the uri of ___/todo/createTask
-router.post("/createTask", (req, res) => {
-    res.send("test");
+
+//posts new task to my_todo db in mongo
+router.post("/createTask", upload.array(), function (req, res) {
+  const taskInfo = req.body;
+  // will create some error handeling for this but not now
+  const newTask = new Task({
+    task: taskInfo.task,
+    description: taskInfo.description,
+    category: taskInfo.category,
+    completed: false,
+    dateCreated: Date.now(),
+  });
+  newTask.save(function (err, Task) {
+    if (err) {
+      res.status(500).json({ message: "Database error", error: err });
+    } else {
+      res.json({ ...taskInfo });
+    }
+  });
 });
 
 //export router to index

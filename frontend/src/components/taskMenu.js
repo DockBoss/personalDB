@@ -73,7 +73,7 @@ const SubmitButton = styled.button`
 
   render() {
     return (
-      <TaskDiv action="/tests" method="POST" target="_blank" enctype="multipart/form-data" > 
+      <TaskDiv action="todo/createTask" method="POST" target="_blank" enctype="multipart/form-data" > 
         <TaskInput required type="text" name = 'task'/>
            <Select size = "2" name = "category">
              <Option value="Work" >Work</Option>
