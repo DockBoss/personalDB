@@ -1,20 +1,29 @@
+//placeholders going to remove them
 export const darkSecondary = "#000";
-export const dark = "#111F2A";
+export const dark = "#7f7f7f";
 export const medium = "#d3d3d3"
 export const light = "#fff";
 export const electric  = "#e7f929";
 export const electricDark = "#99a51b"
 export const orange = "#fc7a1e";
-export const orangeDark = "#";
 export const blue = "#75f4f4";
-export const blueDark = "#";
 export const green = "#00f0b5";
-export const greenDark= "#";
 export const purple = "#5e239d";
-export const purpleDark = "#";
+//used for test
+export const layer0Light = "#f2f2f2";
+export const layer0Dark = "#e6e6e6";
+export const layer1Light = "#d9d9d9";
+export const layer1Dark = "#ccc";
+export const layer2Light = "#bfbfbf";
+export const layer2Dark = "#b3b3b3";
+export const layer3Light = "#a6a6a6";
+export const layer3Dark = "#999";
+export const layer4Light = "#8c8c8c";
+export const layer4Dark = "#808080";
 
-
-
-
-
-
+export const greenLayer0Light = "#6c9";
+export const greenLayer0Dark = "#53c68c";
+export const greenLayer1Light = "#40bf80";
+export const greenLayer1Dark = "#39ac73";
+export const greenLayer2Light = "#396";
+export const greenLayer2Dark = "#2d8659";

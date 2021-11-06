@@ -4,51 +4,69 @@ import * as colors from "./colors";
 
 
 const TaskDiv = styled.form`
-  background-color: ${colors.light};
-  width: 85vw;
-  height: 200px;
-  border: 15px inset ${colors.electric};
+  width: 33vw;
   margin-top: 40px;
-  display: grid;
-  grid-template-areas:
-    "title submit"
-    "description category";
   padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+    border-style: inset;
+    border-color: ${colors.greenLayer0Dark} ${colors.greenLayer0Dark} ${colors.greenLayer0Light} ${colors.greenLayer0Light};
+      border-width: 15px 15px 20px 20px;
+    background-color: ${colors.greenLayer1Dark};
 `;
 
 const TaskInput = styled.input`
-  border: 10px inset ${colors.electric};
   grid-area: title;
   color: ${colors.electricDark};
   font-size: 20px;
+  border-style: inset;
+  border-color: ${colors.greenLayer1Dark} ${colors.greenLayer1Dark} ${colors.greenLayer1Light}
+    ${colors.greenLayer1Light};
+  border-width: 5px 5px 10px 10px;
+  background-color: ${colors.layer0Light};
+  margin: 0px 20px 10px 0px;
 `;
-
-const DescriptionInput = styled.textarea`
-border: 10px inset ${colors.electric};
-grid-area: description;
-color: ${colors.electricDark};
-  font-size: 15px;
-`;
-const SubmitButton = styled.button`
-background-color: ${colors.light};
- color: ${colors.dark};
-border: 10px inset ${colors.electric};
-grid-area: submit;
-  width: auto;
-  margin: 0px;
-  cursor: pointer;
-`;
-
 const Select = styled.select`
- background-color: ${colors.light};
- border: 10px inset ${colors.electric};  
- grid-area: category;
+overflow: hidden;
+ border-style: inset;
+ border-color: ${colors.greenLayer1Dark} ${colors.greenLayer1Dark} ${colors.greenLayer1Light}
+   ${colors.greenLayer1Light};
+   border-width: 5px 5px 10px 10px;
+ background-color: ${colors.layer0Light};
+ margin: 10px 0px 10px 20px;
+text-align-last: center;
 `;
 const Option = styled.option`
 font-size: 15px;
-  color: ${colors.electricDark};
+color: ${colors.darkSecondary};
   cursor: pointer;
-  overflow-y: hidden;
+  display: inline-block;
+  text-align: center;
+  margin: 10px 15px 0px 15px;
+`;
+
+
+const DescriptionInput = styled.textarea`
+color: ${colors.electricDark};
+  font-size: 15px;
+  border-style: inset;
+  border-color: ${colors.greenLayer1Dark} ${colors.greenLayer1Dark} ${colors.greenLayer1Light}
+    ${colors.greenLayer1Light};
+    border-width: 5px 5px 10px 10px;
+  background-color: ${colors.layer0Light};
+  margin: 10px 20px 10px 0px;
+`;
+const SubmitButton = styled.button`
+ color: ${colors.dark};
+ font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  border-style: inset;
+  border-color: ${colors.greenLayer1Dark} ${colors.greenLayer1Dark} ${colors.greenLayer1Light} ${colors.greenLayer1Light};
+  border-width: 5px 5px 10px 10px;
+  background-color: ${colors.layer0Light};
+  margin: 10px 0px 0px 20px;
 `;
 
  class TaskMenu extends React.Component{
@@ -57,14 +75,14 @@ font-size: 15px;
     return (
       <TaskDiv action="/tests" method="POST" target="_blank" enctype="multipart/form-data" > 
         <TaskInput required type="text" name = 'task'/>
-           <Select size = "5" name = "category">
+           <Select size = "2" name = "category">
              <Option value="Work" >Work</Option>
              <Option value="Life">Life</Option>
              <Option value="Personal Programming">Personal Programming</Option>
              <Option value="Finances">Finances</Option>
              <Option value="3D Printing">3D Printing</Option>
              </Select> 
-        <DescriptionInput required type = "text" name="description"/>
+        <DescriptionInput required type = "text" name="description" rows = "5"/>
         <SubmitButton>Submit</SubmitButton>
       </TaskDiv>
     );

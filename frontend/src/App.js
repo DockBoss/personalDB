@@ -5,6 +5,7 @@ import NavBar from "./components/navBar.js";
 import TaskMenu from "./components/taskMenu.js";
 import TodoList from "./components/todoList.js";
 import * as colors from "./components/colors";
+import Tests from "./components/test"
 const Wrapper = styled.div`
   margin: 0px;
   margin-top: 100px;
@@ -16,7 +17,7 @@ const Wrapper = styled.div`
   justify-content: space-around;
   align-items: center;
   overflow-x: hidden;
-  background-color: ${colors.light}
+  background-color: ${colors.layer0Dark}
 `;
 
 const StyledLink = styled.div`
@@ -43,8 +44,8 @@ border-color: ${colors.blue};
 background-color: ${colors.blue};
 `;
 const GreenLinkDiv = styled(StyledLink)`
-border-color: ${colors.green};
-background-color: ${colors.green};
+border-color: ${colors.greenLayer0Light};
+background-color: ${colors.greenLayer0Light};
 `;
 const PurpleLinkDiv = styled(StyledLink)`
 border-color: ${colors.purple};
@@ -58,7 +59,7 @@ export default function App(props) {
       <Router>
         <NavBar>
           <Link to="/todo">
-            <TodoLinkDiv>ToDo</TodoLinkDiv>
+          <GreenLinkDiv>ToDo</GreenLinkDiv>
           </Link>
           <Link to="/home">
             <OrangeLinkDiv>Test</OrangeLinkDiv>
@@ -78,7 +79,9 @@ export default function App(props) {
             <TaskMenu />
             <TodoList />
           </Route>
-          <Route path="/home">test</Route>
+          <Route path="/home">
+            <Tests />
+          </Route>
         </Switch>
       </Router>
     </Wrapper>
