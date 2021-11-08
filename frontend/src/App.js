@@ -3,22 +3,31 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 import NavBar from "./components/navBar.js";
 import TaskMenu from "./components/taskMenu.js";
+import TodoFilter from "./components/todoFilter.js";
 import TodoList from "./components/todoList.js";
 import * as colors from "./components/colors";
 import Tests from "./components/test"
+import BlockTest from "./components/blockTest"
 const Wrapper = styled.div`
   margin: 0px;
   margin-top: 100px;
   padding: 0px;
-  height: 100%;
+  height: 150vh;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
   overflow-x: hidden;
-  background-color: ${colors.layer0Dark}
 `;
+
+const RowDiv = styled.div`
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  overflow-x: hidden;
+`;
+
 
 const StyledLink = styled.div`
   text-align: center;
@@ -31,29 +40,26 @@ const StyledLink = styled.div`
   box-shadow: 2px 5px 5px ${colors.dark};
 `;
 
-const TodoLinkDiv = styled(StyledLink)`
-border-color: ${colors.electric};
-background-color: ${colors.electric};
-`;
 const OrangeLinkDiv = styled(StyledLink)`
-border-color: ${colors.orange};
-background-color: ${colors.orange};
+border-color: ${colors.orangeLayer0Light};
+background-color: ${colors.orangeLayer0Light};
 `;
 const BlueLinkDiv = styled(StyledLink)`
-border-color: ${colors.blue};
-background-color: ${colors.blue};
+border-color: ${colors.blueLayer0Light};
+background-color: ${colors.blueLayer0Light};
 `;
 const GreenLinkDiv = styled(StyledLink)`
 border-color: ${colors.greenLayer0Light};
 background-color: ${colors.greenLayer0Light};
 `;
 const PurpleLinkDiv = styled(StyledLink)`
-border-color: ${colors.purple};
-background-color: ${colors.purple};
+border-color: ${colors.purpleLayer0Light};
+background-color: ${colors.purpleLayer0Light};
 `;
 
 //Building the application out of components
-export default function App(props) {
+export default class App extends React.Component {
+  render(){
   return (
     <Wrapper>
       <Router>
@@ -62,7 +68,7 @@ export default function App(props) {
           <GreenLinkDiv>ToDo</GreenLinkDiv>
           </Link>
           <Link to="/home">
-            <OrangeLinkDiv>Test</OrangeLinkDiv>
+            <OrangeLinkDiv>Depth Test</OrangeLinkDiv>
           </Link>
           <Link to="/">
             <BlueLinkDiv>Test</BlueLinkDiv>
@@ -70,20 +76,27 @@ export default function App(props) {
           <Link to="">
             <GreenLinkDiv>Test</GreenLinkDiv>
           </Link>
-          <Link to="">
-            <PurpleLinkDiv>Test</PurpleLinkDiv>
+          <Link to="/blocks">
+            <PurpleLinkDiv>Block Test</PurpleLinkDiv>
           </Link>
         </NavBar>
         <Switch>
           <Route path="/todo">
+            <RowDiv>
             <TaskMenu />
+            <TodoFilter />
+            </RowDiv>
             <TodoList />
           </Route>
           <Route path="/home">
             <Tests />
           </Route>
+          <Route path = "/blocks">
+            <BlockTest />
+          </Route>
         </Switch>
       </Router>
     </Wrapper>
   );
+  }
 }

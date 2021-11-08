@@ -2,5 +2,5 @@ body {
     margin: 0px;
     padding: 0px;
     overflow-y: scroll;
-    scrollbar-width: none;
+    background-color: #e6e6e6;
 }

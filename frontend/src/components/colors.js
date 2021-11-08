@@ -3,12 +3,6 @@ export const darkSecondary = "#000";
 export const dark = "#7f7f7f";
 export const medium = "#d3d3d3"
 export const light = "#fff";
-export const electric  = "#e7f929";
-export const electricDark = "#99a51b"
-export const orange = "#fc7a1e";
-export const blue = "#75f4f4";
-export const green = "#00f0b5";
-export const purple = "#5e239d";
 //used for test
 export const layer0Light = "#f2f2f2";
 export const layer0Dark = "#e6e6e6";
@@ -27,3 +21,31 @@ export const greenLayer1Light = "#40bf80";
 export const greenLayer1Dark = "#39ac73";
 export const greenLayer2Light = "#396";
 export const greenLayer2Dark = "#2d8659";
+
+export const purpleLayer0Light = "#b3f";
+export const purpleLayer0Dark = "#b31aff";
+export const purpleLayer1Light = "#a0f";
+export const purpleLayer1Dark = "#9900e6";
+export const purpleLayer2Light = "#80c";
+export const purpleLayer2Dark = "#7700b3";
+
+export const orangeLayer0Light = "#f93";
+export const orangeLayer0Dark = "#ff8c1a";
+export const orangeLayer1Light = "#ff8000";
+export const orangeLayer1Dark = "#e67300";
+export const orangeLayer2Light = "#c60";
+export const orangeLayer2Dark = "#b35900";
+
+export const blueLayer0Light = "#3cf";
+export const blueLayer0Dark = "#1ac6ff";
+export const blueLayer1Light = "#00bfff";
+export const blueLayer1Dark = "#00ace6";
+export const blueLayer2Light = "#09c";
+export const blueLayer2Dark = "#0086b3";
+
+export const redLayer0Light = "#f33";
+export const redLayer0Dark = "#ff1a1a";
+export const redLayer1Light = "#f00";
+export const redLayer1Dark = "#e60000";
+export const redLayer2Light = "#c00";
+export const redLayer2Dark = "#b30000";

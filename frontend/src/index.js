@@ -3,11 +3,12 @@ import ReactDOM from "react-dom";
 //maybe remove this and figure how to convert it into styled-components for background styles
 import './index.css'
 import App from "./App";
+import * as colors from "./components/colors";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <StrictMode>
-<App/>
+<App />
   </StrictMode>,
   rootElement
 );

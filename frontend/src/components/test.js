@@ -4,6 +4,8 @@ import * as colors from "./colors";
 //testing out 3d nesting
 // top right bottom left
 const Test = styled.div`
+  margin-top: 50px;
+  align-self: center;
   display: flex;
   flex-direction: column;
   justify-content: center;

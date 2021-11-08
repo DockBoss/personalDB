@@ -14,6 +14,7 @@ const TodoDiv = styled.div`
 		border-color: ${colors.greenLayer0Dark} ${colors.greenLayer0Dark} ${colors.greenLayer0Light} ${colors.greenLayer0Light};
 			border-width: 15px 15px 20px 20px;
 		background-color: ${colors.greenLayer1Dark};
+	align-self: center;
 `;
 const TaskView = styled.div`
 	background-color: #fff;
